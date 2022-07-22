@@ -6,6 +6,10 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "types": [
+      "node",
+      "webpack-env" // here
+    ],
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
@@ -18,7 +22,6 @@
   },
   "include": ["src", "tailwind.config.js"],
   "paths":{
-    "@pages/*": ["src/pages/*"],
-    "@helpers/*": ["src/helpers/*"]
+    "@": ["./src"]
   }
 }

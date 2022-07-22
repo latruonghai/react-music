@@ -1,11 +1,19 @@
 import './App.css';
 
-import React, { useEffect } from 'react';
-import CommmonHelpers from './helpers/commonHelpers';
+import routes from './pages/routes';
+import { Link } from 'react-router-dom';
+// console.log(routes);
+console.log('🚀 ~ file: App.tsx ~ line 7 ~ routes', routes);
 function App() {
-    const a = CommmonHelpers.helloWorld;
-    useEffect(() => a(), [a]);
-    return <div className=""></div>;
+	return (
+		<div>
+			<h1>Home</h1>
+			<nav>
+				<Link to="/home-page">Home</Link> |{' '}
+				<Link to="about">About</Link>
+			</nav>
+		</div>
+	);
 }
 
 export default App;
