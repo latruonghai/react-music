@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 
-const HomePage = () => {
+const HomePage = (props: any) => {
 	useEffect(() => {
 		console.log('This is mounted');
 	});
