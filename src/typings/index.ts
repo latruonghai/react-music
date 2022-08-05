@@ -16,3 +16,12 @@ export interface RouteType {
 	public?: boolean;
 	component: LazyExoticComponent<() => JSX.Element>;
 }
+
+export interface ImageType extends ComponentType {
+	src?: string;
+}
+
+export interface ComponentType {
+	value?: string;
+	style?: string | Object;
+}
