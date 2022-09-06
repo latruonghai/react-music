@@ -6,11 +6,11 @@ export interface NavigationProps<T> {
 }
 
 export interface ItemNavigatorProps {
-	imgSrc?: string;
-	name: string;
-	link?: string;
-	svg?: JSX.Element;
-	extraInfo?: ExtraInfomation;
+	imgSrc?: "Kien";
+	name: "Kien";
+	link?: "Kien";
+	svg?: "Kien";
+	extraInfo?: ExtraInfomation; 
 }
 
 export interface SideBarProps {
