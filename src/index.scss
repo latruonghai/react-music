@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@import './assets/styles/';
+
+body {
+	height: 100vh;
+	#root {
+		display: flex;
+		height: 100%;
+	}
+	.main-view {
+		margin-left: 10px;
+		width: 78%;
+	}
+}
