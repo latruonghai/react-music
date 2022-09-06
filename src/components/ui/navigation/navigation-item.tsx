@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ItemNavigatorProps } from '../../../typings';
+import { ItemNavigatorProps } from '../../../typings/props/components';
 
 export const NavigationItem = (props: ItemNavigatorProps) => {
     return (
@@ -25,3 +25,4 @@ export const NavigationItem = (props: ItemNavigatorProps) => {
         </React.Fragment>
     );
 };
+export default NavigationItem;

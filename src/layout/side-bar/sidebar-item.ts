@@ -17,6 +17,26 @@ export const sideBarItem: SideBarDataType = {
 		},
 	},
 	items: [
+	{
+			style: style.SIDE_ITEM,
+			linkTo: '/my-music',
+			view: {
+				component: AlbumIcon({
+					className: 'side-bar-svg',
+				}),
+				value: 'Cá nhân',
+			},
+		},
+	{
+			style: style.SIDE_ITEM,
+			linkTo: '/home-page',
+			view: {
+				component: SongIcon({
+					className: 'side-bar-svg',
+				}),
+				value: 'Khám phá',
+			},
+		},
 		{
 			style: style.SIDE_ITEM,
 			linkTo: '/singers',
@@ -25,16 +45,6 @@ export const sideBarItem: SideBarDataType = {
 					className: 'side-bar-svg',
 				}),
 				value: 'Singer',
-			},
-		},
-		{
-			style: style.SIDE_ITEM,
-			linkTo: '/albums',
-			view: {
-				component: AlbumIcon({
-					className: 'side-bar-svg',
-				}),
-				value: 'Albums',
 			},
 		},
 		{

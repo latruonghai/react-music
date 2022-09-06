@@ -8,7 +8,7 @@ const Sidebar = ({ data }: SideBarProps) => {
 	return (
 		<React.Fragment>
 			<aside className="side-bar">
-				<div className="side-bar-wrapper">
+				<div className="side-bar-wrapper"> 
 					<Link to={data?.title?.linkTo as string} className="side-bar-logo">
 						{data?.title.img && (
 							<img
@@ -19,7 +19,7 @@ const Sidebar = ({ data }: SideBarProps) => {
 						)}
 						{data?.title.innerText && (
 							<span className="side-bar-title">
-								{data.title.innerText as string}
+								{data.title.innerText as string}	
 							</span>
 						)}
 					</Link>
