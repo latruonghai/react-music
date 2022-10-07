@@ -6,14 +6,16 @@
 @import './assets/styles/';
 
 body {
-	height: 100vh;
-	background-color: #171717;
-	#root {
-		display: flex;
-		height: 100%;
-	}
-	.main-view {
-		margin-left: 10px;
-		width: 78%;
-	}
+  height: -80vh;
+  background-color: #171717;
+  overflow-x: hidden;
+  #root {
+    display: flex;
+    height: -80vh;
+  }
+  .main-view {
+    padding-left: 282px;
+    height: -80vh;
+    width: 100%;
+  }
 }

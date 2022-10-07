@@ -1,64 +1,87 @@
 .slider {
-    position: relative;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    right: -24%;
-    top: 9%;
-    margin-bottom: 60px;
+  position: relative;
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 2%;
+  top: 65px;
+  margin-bottom: 70px;
 }
 
 .left-arrow {
-    position: absolute;
-    top: 33%;
-    left: 32px;
-    font-size: 60px;
-    z-index: 10;
-    color: #fff;
-    cursor: pointer;
-    user-select: none;
-    opacity: 1;
+  position: absolute;
+  font-size: 55px;
+  z-index: 10;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0;
+  left: 60px;
+  margin: auto;
+  background-color: rgb(95, 95, 95);
+  border-radius: 50%;
 }
 
 .right-arrow {
-    position: absolute;
-    top: 33%;
-    right: 32px;
-    font-size: 60px;
-    z-index: 10;
-    color: #fff;
-    cursor: pointer;
-    user-select: none;
-    opacity: 1;
+  position: absolute;
+  font-size: 55px;
+  z-index: 10;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0;
+  right: 60px;
+  margin: auto;
+  background-color: rgb(95, 95, 95);
+  border-radius: 50%;
 }
 
 .slide {
-    position: absolute;
-    width: 370px;
-    height: 200px;
-    top: 15%;
-    cursor: pointer;
-    z-index: 0;
-    opacity: 0;
-    transition: 500ms;
-    border-radius: 15px;
+  position: absolute;
+  width: 370px;
+  height: 200px;
+  top: 15%;
+  cursor: pointer;
+  z-index: 0;
+  opacity: 0;
+  transition: 500ms;
+  border-radius: 15px;
 }
 
 .slide--active {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 9;
+  opacity: 1;
+  transform: scale(1);
+  z-index: 9;
 }
 
 .slide--left {
-    transform: translateX(-105%) scale(1);
-    transition: 500ms;
-    opacity: 1;
+  transform: translateX(-105%) scale(1);
+  transition: 500ms;
+  opacity: 1;
 }
 
 .slide--right {
-    transform: translateX(105%) scale(1);
-    transition: 500ms;
-    opacity: 1;
+  transform: translateX(105%) scale(1);
+  transition: 500ms;
+  opacity: 1;
+}
+
+.slider:hover {
+  .left-arrow {
+    opacity: 0.5;
+  }
+  .right-arrow {
+    opacity: 0.5;
+  }
+}
+
+.left-arrow :hover {
+  background-color: rgb(129, 129, 129);
+  border-radius: 50%;
+}
+
+.right-arrow :hover {
+  background-color: rgb(129, 129, 129);
+  border-radius: 50%;
 }
