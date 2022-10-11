@@ -18,11 +18,12 @@ import { data3 } from '../../../../typings/data/data';
 const AudioPlayer = () => {
   const dispatch = useDispatch();
   const [heart, setHeart] = useState(false);
-
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const [random, setRandom] = useState(0);
-  const { current } = useSelector((state: RootState) => state.player);
+  const { current, isNextSong } = useSelector(
+    (state: RootState) => state.player
+  );
 
   const [audio, state, controls] = useAudio({
     src: current?.src,
@@ -43,7 +44,12 @@ const AudioPlayer = () => {
   useEffect(() => {
     dispatch(setControls(controls));
   }, []);
-
+  useEffect(() => {
+    if (isNextSong) {
+      console.log(isNextSong);
+      updateCurrentNext();
+    }
+  }, [isNextSong]);
   const updateCurrentPre = () => {
     if (current.index === 0 && repeat) {
       dispatch(
@@ -69,7 +75,6 @@ const AudioPlayer = () => {
   const updateCurrentNext = () => {
     if (shuffle) {
       setRandom(Math.floor(Math.random() * 12));
-      console.log(random);
       dispatch(
         setCurrent(
           data3.find(value => {
