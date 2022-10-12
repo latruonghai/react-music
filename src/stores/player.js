@@ -9,6 +9,7 @@ const initialState = {
   controls: false,
   playing: false,
   repeat: false,
+  isNextSong: false,
   song: {
     index: null,
     id: '',
@@ -25,6 +26,11 @@ export const playerSlice = createSlice({
   reducers: {
     setCurrent: (state, action) => {
       state.current = action.payload;
+    },
+    setIsNextSong(state, action) {
+      if (state.isNextSong !== action.payload) {
+        state.isNextSong = action.payload;
+      }
     },
     setControls: (state, action) => {
       state.controls = action.payload;
@@ -43,7 +49,13 @@ export const playerSlice = createSlice({
 const customizedMiddleware = getDefaultMiddleware({
   serializableCheck: false,
 });
-export const { setControls, setCurrent, setPlaying, setSongIndex, setRepeat } =
-  playerSlice.actions;
+export const {
+  setControls,
+  setCurrent,
+  setPlaying,
+  setSongIndex,
+  setRepeat,
+  setIsNextSong,
+} = playerSlice.actions;
 
 export default playerSlice.reducer;
