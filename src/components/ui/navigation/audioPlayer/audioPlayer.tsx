@@ -18,8 +18,7 @@ import { data3 } from '../../../../typings/data/data';
 const AudioPlayer = () => {
   const dispatch = useDispatch();
   const [heart, setHeart] = useState(false);
-
-  const [repeat, setRepeat] = useState(false);
+  const [repeat1, setRepeat1] = useState({ index: 0 });
   const [shuffle, setShuffle] = useState(false);
   const [random, setRandom] = useState(0);
   const { current } = useSelector((state: RootState) => state.player);
@@ -27,6 +26,11 @@ const AudioPlayer = () => {
   const [audio, state, controls] = useAudio({
     src: current?.src,
   });
+
+  const handleClick = () => {
+    let i = repeat1.index < 2 ? (repeat1.index += 1) : 0;
+    setRepeat1({ index: i });
+  };
 
   useEffect(() => {
     dispatch(setSongIndex(0));
@@ -45,7 +49,7 @@ const AudioPlayer = () => {
   }, []);
 
   const updateCurrentPre = () => {
-    if (current.index === 0 && repeat) {
+    if (current.index === 0 && repeat1.index === 1) {
       dispatch(
         setCurrent(
           data3.find(value => {
@@ -78,7 +82,7 @@ const AudioPlayer = () => {
         )
       );
     } else {
-      if (current.index === data3.length - 1 && repeat) {
+      if (current.index === data3.length - 1 && repeat1.index === 1) {
         dispatch(
           setCurrent(
             data3.find(value => {
@@ -88,6 +92,8 @@ const AudioPlayer = () => {
         );
       } else if (current.index === data3.length - 1) {
         return;
+      } else if (repeat1.index === 2) {
+        dispatch(setCurrent(current));
       } else {
         dispatch(
           setCurrent(
@@ -97,13 +103,6 @@ const AudioPlayer = () => {
           )
         );
       }
-    }
-  };
-  const handleRepeat = () => {
-    if (!repeat) {
-      setRepeat(true);
-    } else {
-      setRepeat(false);
     }
   };
   const handleShuffle = () => {
@@ -132,6 +131,15 @@ const AudioPlayer = () => {
     }
   }, [state.volume, state.muted]);
 
+  const repeatIcon = useMemo(() => {
+    if (repeat1.index === 0) {
+      return 'repeat';
+    } else if (repeat1.index === 1) {
+      return 'repeat';
+    } else {
+      return 'repeat1';
+    }
+  }, [repeat1.index]);
   return (
     <div className="flex px-4 justify-between items-center h-full">
       <div className="min-w-[11.25] w-[30%]">
@@ -194,12 +202,16 @@ const AudioPlayer = () => {
             <Icon size={16} name="playerNext" />
           </button>
           <button
-            onClick={handleRepeat}
+            onClick={() => {
+              handleClick();
+            }}
             className={`w-9 h-9 flex items-center justify-center text-white ${
-              repeat ? 'text-pink-400' : 'text-opacity-70'
+              repeat1.index === 1 || repeat1.index === 2
+                ? 'text-pink-400'
+                : 'text-opacity-70'
             }  hover:text-pink-400`}
           >
-            <Icon size={16} name="repeat" />
+            <Icon size={16} name={repeatIcon} />
           </button>
         </div>
         <div className="w-full flex items-center gap-x-2 mt-1.5">
