@@ -5,7 +5,6 @@ import type { RootState } from '../../../stores/index';
 import { Icon } from '../../icons/audioPlayer';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrent } from '../../../stores/player';
-import { data5 } from '../../../typings/data/data';
 
 function Card({ item, title }) {
   const [heart, setHeart] = useState(false);
@@ -70,9 +69,6 @@ function Card({ item, title }) {
       setHeart(false);
     }
   };
-  const addData = () => {
-    data5.push(current);
-  };
   return (
     <div className={`${styleCard2(title)}`} key={item.id}>
       <div className={`${styleCard(title)}`}>
@@ -93,7 +89,6 @@ function Card({ item, title }) {
             <button
               onClick={() => {
                 updateCurrent();
-                addData();
               }}
               className="w-[40px] h-[40px] flex border-2 border-white rounded-full items-center justify-center text-white"
             >
